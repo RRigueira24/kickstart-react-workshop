@@ -1,21 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getCharacters } from "@api/characters";
 import { CharacterList } from "@components/organisms";
 
+import { getCharacters } from "@api/characters";
+
 const Home = () => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["characters"],
     queryFn: getCharacters,
   });
-  
 
   if (isLoading) {
-    return <p>loading</p>;
+    return <p>A carregar</p>;
   }
 
   if (isError) {
-    return <p>error</p>;
+    return <p>Erro: {JSON.stringify(error)} </p>;
   }
 
   return <CharacterList data={data?.results ?? []} />;

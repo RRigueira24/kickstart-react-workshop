@@ -6,12 +6,11 @@ import { Layout } from "@components/organisms";
 import { globalStyles } from "@theme/global";
 
 const App = ({ Component, pageProps }) => {
-  // Create a client
   const queryClient = new QueryClient();
 
   return (
     <>
-      {typeof window !== "undefined" && <Global styles={globalStyles} />}
+      <Global styles={globalStyles} />
       <QueryClientProvider client={queryClient}>
         <Layout>
           <Component {...pageProps} />

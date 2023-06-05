@@ -1,6 +1,6 @@
 import instance from "./config";
 
-const getCharacters = async () => {
+const getCharacters = async (ids) => {
   return await instance
     .get("character")
     .then((e) => e.data)
